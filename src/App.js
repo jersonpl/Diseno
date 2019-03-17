@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import MapContainer from './MapContainer';
 
 class App extends Component {
   state = {
     datos: []
   }
   componentDidMount(){
-    this.interval = setInterval(() => this.getData(), 1000);
-   // this.getData();
+    this.getData();
+    this.interval = setInterval(() => this.getData(), 10000);  
   }
   componentWillUnmount(){
     clearInterval(this.interval);
@@ -19,7 +20,12 @@ class App extends Component {
     .catch(err => console.error(err))
   }
   render() {
-    var todos = this.state.datos.map((dato, i)=>{
+    var marker = this.state.datos.map((dato)=>{
+      return (
+        <MapContainer lati = {dato.Latitud} longi = {dato.Longitud} />
+      )
+    })
+    var todos = this.state.datos.map((dato)=>{
       return (
         <tr>
           <th><div>{dato.ID}</div></th>
@@ -49,6 +55,7 @@ class App extends Component {
             {todos}                            
           </tbody> 
         </table>
+        {marker}
       </div>
     );
   }

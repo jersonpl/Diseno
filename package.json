@@ -5,6 +5,7 @@
   "dependencies": {
     "dgram": "^1.0.1",
     "express": "^4.16.4",
+    "google-maps-react": "^2.0.2",
     "mysql": "^2.16.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
