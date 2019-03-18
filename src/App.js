@@ -20,7 +20,7 @@ class App extends Component {
     .catch(err => console.error(err))
   }
   render() {
-    var marker = this.state.datos.map((dato)=>{
+    var marker = this.state.datos.map((dato, i)=>{
       return (
         <MapContainer lati = {dato.Latitud} longi = {dato.Longitud} />
       )
